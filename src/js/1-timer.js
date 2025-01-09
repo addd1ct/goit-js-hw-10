@@ -3,7 +3,7 @@ import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-const input = document.querySelector("#datetime-picker");
+const input = document.querySelector(".datetime-picker");
 const startButton = document.querySelector("[data-start]");
 const daysField = document.querySelector("[data-days]");
 const hoursField = document.querySelector("[data-hours]");
@@ -34,7 +34,7 @@ const options = {
   },
 };
 
-flatpickr(input, options);
+flatpickr(".datetime-picker", options);
 
 function addLeadingZero(value) {
   return String(value).padStart(2, "0");
