@@ -20,11 +20,20 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
+    if (selectedDates[0] > new Date()) {
+      userSelectedDate = selectedDates[0];
+      startButton.disabled = false;
+    } else {
+      iziToast.error({
+        title: "Error",
+        message: "Please choose a future date",
+      });
+      startButton.disabled = true;
+    }
   },
 };
 
 flatpickr(".datetime-picker", options);
-
 
 function addLeadingZero(value) {
   return String(value).padStart(2, "0");
@@ -84,3 +93,4 @@ function startTimer() {
 startButton.addEventListener("click", startTimer);
 
 startButton.disabled = true;
+
